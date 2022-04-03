@@ -1,0 +1,33 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    generate-ddl: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    eventuate:
+      url: jdbc:h2:file:~/mem_data/eventuate;INIT=create domain if not exists jsonb as other;MODE=PostgreSQL
+      username: sa
+      password:
+      driverClassName: org.h2.Driver
+    event:
+      url: jdbc:h2:file:~/mem_data/events;INIT=create domain if not exists jsonb as other;MODE=PostgreSQL
+      username: sa
+      password:
+      driverClassName: org.h2.Driver
+    driver-class-name: org.h2.Driver
+
+eventuatelocal:
+  kafka:
+    bootstrap:
+      servers: localhost:9092
+  cdc.db:
+    user.name: sa
+    password:
+  database:
+    schema: eventuate
+  cdc.source:
+    table.name: MESSAGE
+  cdc.type: EventuateTram
+

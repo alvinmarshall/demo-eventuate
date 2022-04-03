@@ -1,0 +1,24 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    generate-ddl: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    eventuate:
+      url: jdbc:postgresql://localhost:5432/eventuate
+      username: eventuate
+      password: eventuate
+      driverClassName: org.postgresql.Driver
+    event:
+      url: jdbc:postgresql://localhost:5433/events
+      username: postgres
+      password: postgres
+      driverClassName: org.postgresql.Driver
+    driver-class-name: org.postgresql.Driver
+
+eventuatelocal:
+  kafka:
+    bootstrap:
+      servers: localhost:9092
