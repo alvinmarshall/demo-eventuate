@@ -7,7 +7,7 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
   datasource:
     eventuate:
-      url: jdbc:h2:file:~/mem_data/eventuate;INIT=create domain if not exists jsonb as other;MODE=PostgreSQL
+      url: jdbc:h2:file:~/mem_data/eventuate;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL;INIT=RUNSCRIPT FROM 'classpath:eventuate_init.sql';DB_CLOSE_DELAY=-1;
       username: sa
       password:
       driverClassName: org.h2.Driver
